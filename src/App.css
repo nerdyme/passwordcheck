@@ -1,0 +1,242 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  flex: 1;
+  padding: 4rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0 0 2.5rem;
+  font-size: 1.125rem;
+  color: #a8b2c1;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.input-group {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.875rem 2.75rem 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.input-group input:focus {
+  border-color: #5bc0de;
+  box-shadow: 0 0 0 3px rgba(91, 192, 222, 0.2);
+}
+
+.toggle-visibility {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.5);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggle-visibility:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.check-btn {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: #e74c3c;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.check-btn:hover:not(:disabled) {
+  background: #c0392b;
+}
+
+.check-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.check-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.result {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: left;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.result p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.result p + p {
+  margin-top: 0.75rem;
+}
+
+.result-safe {
+  background: rgba(46, 204, 113, 0.12);
+  border: 1px solid rgba(46, 204, 113, 0.35);
+}
+
+.result-safe h3 {
+  color: #2ecc71;
+}
+
+.result-pwned {
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.35);
+}
+
+.result-pwned h3 {
+  color: #e74c3c;
+}
+
+.result-pwned .count {
+  font-size: 1rem;
+}
+
+.result-pwned .count strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.result-error {
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.35);
+  color: #e74c3c;
+  text-align: center;
+}
+
+.result-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.result-icon.safe {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.2);
+}
+
+.result-icon.pwned {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.2);
+}
+
+.privacy {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.privacy h2 {
+  margin: 0 0 1rem;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.privacy p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #a8b2c1;
+}
+
+.footer {
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+@media (max-width: 540px) {
+  .search-form {
+    flex-direction: column;
+  }
+
+  .check-btn {
+    width: 100%;
+  }
+}
