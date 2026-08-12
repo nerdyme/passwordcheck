@@ -1,0 +1,239 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  flex: 1;
+  padding: 4rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, $color-bg-hero 0%, $color-bg 100%);
+
+  h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    color: $color-white;
+    letter-spacing: -0.02em;
+  }
+}
+
+.subtitle {
+  margin: 0 0 2.5rem;
+  font-size: 1.125rem;
+  color: $color-text-muted;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: $form-max-width;
+  margin: 0 auto 2rem;
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
+}
+
+.input-group {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    padding: 0.875rem 2.75rem 0.875rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: $color-white;
+    background: rgba($color-white, 0.08);
+    border: 1px solid rgba($color-white, 0.15);
+    border-radius: $border-radius;
+    outline: none;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder {
+      color: rgba($color-white, 0.4);
+    }
+
+    &:focus {
+      @include focus-ring;
+    }
+  }
+}
+
+.toggle-visibility {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  color: rgba($color-white, 0.5);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: rgba($color-white, 0.85);
+  }
+}
+
+.check-btn {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: $color-white;
+  background: $color-danger;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background $transition-fast, transform $transition-press;
+
+  &:hover:not(:disabled) {
+    background: $color-danger-dark;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+  }
+}
+
+.result {
+  max-width: $form-max-width;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: left;
+  border-radius: $border-radius-lg;
+  animation: fadeIn 0.3s ease;
+
+  h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: rgba($color-white, 0.85);
+
+    & + p {
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-safe {
+  @include result-panel($color-success);
+
+  h3 {
+    color: $color-success;
+  }
+}
+
+.result-pwned {
+  @include result-panel($color-danger);
+
+  h3 {
+    color: $color-danger;
+  }
+
+  .count {
+    font-size: 1rem;
+
+    strong {
+      color: $color-white;
+      font-weight: 700;
+    }
+  }
+}
+
+.result-error {
+  @include result-panel($color-danger);
+  color: $color-danger;
+  text-align: center;
+}
+
+.result-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 50%;
+
+  &.safe {
+    color: $color-success;
+    background: rgba($color-success, 0.2);
+  }
+
+  &.pwned {
+    color: $color-danger;
+    background: rgba($color-danger, 0.2);
+  }
+}
+
+.privacy {
+  padding: 3rem 0;
+  @include section-border;
+
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: $color-white;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: $color-text-muted;
+  }
+}
+
+.footer {
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  @include section-border;
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: $color-text-dim;
+  }
+}

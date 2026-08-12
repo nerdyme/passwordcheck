@@ -1,6 +1,12 @@
 # Pwned Password Checker
 
-A simple React app that checks whether a password has appeared in known data breaches using the [Pwned Passwords API](https://haveibeenpwned.com/API/v3#SearchingPwnedPasswordsByRange) with k-anonymity.
+A React + TypeScript app that checks whether a password has appeared in known data breaches using the [Pwned Passwords API](https://haveibeenpwned.com/API/v3#SearchingPwnedPasswordsByRange) with k-anonymity.
+
+## Stack
+
+- **React 18** with **TypeScript**
+- **Vite** for dev server and production builds
+- **Sass (SCSS)** for styles with shared variables and mixins
 
 ## How it works
 
@@ -23,4 +29,19 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 ```bash
 npm run build
 npm run preview
+```
+
+## Project structure
+
+```
+src/
+├── main.tsx                 # React entry point
+├── App.tsx                  # Main UI component
+├── types/passwordCheck.ts   # Shared TypeScript types
+├── utils/checkPassword.ts   # k-anonymity API logic
+├── styles/
+│   ├── _variables.scss      # Colors, spacing, breakpoints
+│   └── _mixins.scss         # Reusable style mixins
+├── index.scss               # Global styles
+└── App.scss                 # Component styles
 ```

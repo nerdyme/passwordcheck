@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+@mixin focus-ring($color: $color-link) {
+  border-color: $color;
+  box-shadow: 0 0 0 3px rgba($color, 0.2);
+}
+
+@mixin result-panel($color) {
+  background: rgba($color, 0.12);
+  border: 1px solid rgba($color, 0.35);
+}
+
+@mixin section-border {
+  border-top: 1px solid rgba($color-white, 0.08);
+}
